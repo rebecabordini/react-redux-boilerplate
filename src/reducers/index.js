@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
-import nameReducer from './nameReducer';
+import todoReducer from './todoReducer';
 
 const rootReducer = history => combineReducers({
   router: connectRouter(history),
-  name: nameReducer
+  todos: todoReducer
 });
 
 export default rootReducer;
