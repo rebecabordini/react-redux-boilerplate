@@ -1,4 +1,6 @@
-export const updateTodos = item => ({
-  type: 'UPDATE_TODOS',
-  item
-})
+import { ADD_TODO } from "../actionTypes";
+
+export const addTodo = text => ({
+  type: ADD_TODO,
+  text
+});
