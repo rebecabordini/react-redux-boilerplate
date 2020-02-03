@@ -7,7 +7,7 @@ import rootReducer from './reducers';
 export const history = createBrowserHistory();
 
 const defaultState = {
-  todos: [],
+
 };
 
 const composeEnhancers =
