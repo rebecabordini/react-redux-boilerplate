@@ -6,6 +6,9 @@ const enterPressed = event => {
     document.getElementById("addTodoButton").click();
 };
 
+const propTypes = {
+  onChange: PropTypes.func.isRequired
+};
 
 export const EmptyTodoItem = ({ onChange }) => (
   <div>
@@ -20,4 +23,6 @@ export const EmptyTodoItem = ({ onChange }) => (
       Add
     </button>
   </div>
-)
+);
+
+EmptyTodoItem.propTypes = propTypes;
