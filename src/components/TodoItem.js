@@ -7,4 +7,4 @@ const propTypes = {
 
 export const TodoItem = ({ item }) => <li>{item}</li>;
 
-TodoItem.PropTypes = propTypes;
+TodoItem.propTypes = propTypes;
