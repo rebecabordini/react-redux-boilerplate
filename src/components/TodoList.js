@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { addTodo } from "../actions";
+import { addTodo, toggleCompleted } from "../actionCreators";
 import { EmptyTodoItem } from "./EmptyTodoItem";
 import { TodoItem } from "./TodoItem";
 
@@ -13,20 +13,29 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: item => {
-    dispatch(addTodo(item));
+  onChange: text => {
+    dispatch(addTodo({ text }));
+  },
+  onToggle: (index, item) => {
+    dispatch(toggleCompleted({ index, item }));
   }
 });
 
 const propTypes = {
-  todos: PropTypes.arrayOf(PropTypes.string).isRequired,
   onChange: PropTypes.func.isRequired,
-}
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      completed: PropTypes.bool,
+      text: PropTypes.string
+    })
+  ).isRequired
+};
 
-const TodoList = ({ todos, onChange }) => {
+const TodoList = ({ todos, onChange, onToggle }) => {
   const listItems = todos.map((item, index) => (
-    <TodoItem key={index} item={item} />
+    <TodoItem key={index} index={index} item={item} onToggle={onToggle} />
   ));
+
   return (
     <div>
       <ul>{listItems}</ul>
@@ -35,6 +44,6 @@ const TodoList = ({ todos, onChange }) => {
   );
 };
 
-TodoList.propTypes = propTypes
+TodoList.propTypes = propTypes;
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);

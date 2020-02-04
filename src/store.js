@@ -6,9 +6,7 @@ import rootReducer from './reducers';
 
 export const history = createBrowserHistory();
 
-const defaultState = {
-
-};
+const defaultState = {};
 
 const composeEnhancers =
   typeof window === 'object' &&
