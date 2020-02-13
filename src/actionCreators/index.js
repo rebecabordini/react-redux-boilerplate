@@ -1,18 +1,16 @@
 import { ADD_TODO, TOGGLE_COMPLETED } from "../actionTypes";
 
-export const addTodo = payload => ({
+export const addTodo = text => ({
   type: ADD_TODO,
   payload: {
     completed: false,
-    ...payload
+    ...text
   }
 });
 
-export const toggleCompleted = ({ item, index }) => ({
+export const toggleCompleted = index => ({
   type: TOGGLE_COMPLETED,
   payload: {
-    ...item,
-    completed: !item.completed,
-    index: index
+    ...index
   }
 });

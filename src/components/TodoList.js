@@ -17,7 +17,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(addTodo({ text }));
   },
   onToggle: (index, item) => {
-    dispatch(toggleCompleted({ index, item }));
+    dispatch(toggleCompleted({ index }));
   }
 });
 

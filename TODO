@@ -1,0 +1,9 @@
+
+Todo:
+  ☐ Make it work again
+  ☐ Add selectors
+  ☐ Add a middleware to handle logs
+  ☐ Refactor TodoList to only pass index to the TodoItem component, and use selectors to get the correct one
+  ☐ Refactor to typescript
+  ✔ Add completed todo item functionality @done(20-02-04 21:50)
+  ✔ Add propTypes @done(20-02-03 15:01)

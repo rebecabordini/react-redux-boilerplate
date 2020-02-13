@@ -3,11 +3,15 @@ const todoReducer = (state = [], action) => {
     case "ADD_TODO":
       return [...state, action.payload];
     case "TOGGLE_COMPLETED":
-      return [
-        ...state.slice(0, action.payload.index),
-        action.payload,
-        ...state.slice(action.payload.index + 1)
-      ];
+      return state.map((item, index) => {
+        if (index === action.payload.index) {
+          return {
+            ...item,
+            completed: !item.completed
+          };
+        }
+        return item;
+      });
     default:
       return state;
   }
